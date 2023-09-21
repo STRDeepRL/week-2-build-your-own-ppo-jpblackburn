@@ -1,0 +1,15 @@
+artifact_uri: /home/jba0109/rl_class/code/week2/submission/mlflow/973829589386972887/c5d307bd91d348bb9f2ee6e167f18e12/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '973829589386972887'
+lifecycle_stage: active
+run_id: c5d307bd91d348bb9f2ee6e167f18e12
+run_name: PPO_MultiGrid-CompetativeRedBlueDoor-v3-DTDE-1v1_11617_00000
+run_uuid: c5d307bd91d348bb9f2ee6e167f18e12
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1695136401621
+status: 1
+tags: []
+user_id: unknown
