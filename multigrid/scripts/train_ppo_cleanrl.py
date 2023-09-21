@@ -563,20 +563,20 @@ def main(args):
                         # HW2 TODO - 
                         # Determine the value of 'nextnonterminal' and 'nextvalues' for this case
                         # 1 if not terminal, 0 if terminal
-                        nextnonterminal = ________
+                        nextnonterminal = 1.0 - next_done
                         nextvalues = next_value
                     else:
                         # HW2 TODO -
                         # Determine the value of 'nextnonterminal' and 'nextvalues' for this case
                         # 1 if not terminal, 0 if terminal
-                        nextnonterminal = ________
+                        nextnonterminal = 1.0 - dones[t + 1]
                         nextvalues = values[t + 1]
 
                     # Compute the TD error: δ_t = r_t + γ V(s_{t+1}) - V(s_t)
                     # HW2 TODO -
                     # Complete the calculation for 'delta' using the formula provided above
                     # Hint: Ensure to effectively nullify the future reward when the next state is terminal (the end of the episode
-                    delta = ________
+                    delta = rewards[t] + args.gamma * nextvalues * nextnonterminal - values[t]
 
                     # Computing the GAE advantage at the current timestep using this form of recursive formula.
                     # The GAE formula is:
@@ -589,12 +589,12 @@ def main(args):
                     # HW2 TODO -
                     # Fill in the blank to complete the computation for the GAE advantage at the current timestep
                     # Hint: Ensure to effectively nullify the future reward when the next state is terminal (the end of the episode
-                    advantages[t] = lastgaelam = ________
+                    advantages[t] = lastgaelam = delta + args.gamma * args.gae_lambda * nextnonterminal * lastgaelam
 
                 # Compute returns for each state: return = value + advantage
                 # HW2 TODO -
                 # Complete the calculation for 'returns' using the relationship between advantage and value
-                returns = ________
+                returns = values + advantages
 
             # Flatten the batch to fit the neural network's input dimensions
             # NOTE: This part is reshaping the tensor structure for ease of processing
